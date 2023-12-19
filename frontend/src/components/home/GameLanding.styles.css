@@ -1,0 +1,16 @@
+body,
+html {
+  height: 100%;
+}
+
+.background-container {
+  height: 100vh;
+  /* Adjust the height as needed */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 100px;
+}

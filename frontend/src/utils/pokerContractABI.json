@@ -1,0 +1,635 @@
+[
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint8",
+				"name": "gameId",
+				"type": "uint8"
+			},
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "winner",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint24",
+				"name": "winnings",
+				"type": "uint24"
+			}
+		],
+		"name": "GameEnded",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint8",
+				"name": "gameId",
+				"type": "uint8"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint8[]",
+				"name": "communityCards",
+				"type": "uint8[]"
+			}
+		],
+		"name": "GameStateChanged",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint8",
+				"name": "gameId",
+				"type": "uint8"
+			},
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "player",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint8",
+				"name": "actionType",
+				"type": "uint8"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint24",
+				"name": "amount",
+				"type": "uint24"
+			},
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "nextPlayer",
+				"type": "address"
+			}
+		],
+		"name": "NextPlayerAction",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint8",
+				"name": "gameId",
+				"type": "uint8"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint24",
+				"name": "newPotSize",
+				"type": "uint24"
+			}
+		],
+		"name": "PotUpdated",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "gameId",
+				"type": "uint8"
+			}
+		],
+		"name": "callAction",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "gameId",
+				"type": "uint8"
+			}
+		],
+		"name": "checkAction",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "gameId",
+				"type": "uint8"
+			}
+		],
+		"name": "clear",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint24",
+				"name": "blindAmount",
+				"type": "uint24"
+			},
+			{
+				"internalType": "uint24",
+				"name": "minBuyIn",
+				"type": "uint24"
+			},
+			{
+				"internalType": "uint24",
+				"name": "maxBuyIn",
+				"type": "uint24"
+			}
+		],
+		"name": "createGame",
+		"outputs": [
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "gameId",
+				"type": "uint8"
+			}
+		],
+		"name": "flop",
+		"outputs": [
+			{
+				"internalType": "uint8",
+				"name": "firstCard",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "secondCard",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "thirdCard",
+				"type": "uint8"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "gameId",
+				"type": "uint8"
+			}
+		],
+		"name": "foldAction",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "gameId",
+				"type": "uint8"
+			}
+		],
+		"name": "joinGame",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "gameId",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint24",
+				"name": "raiseAmount",
+				"type": "uint24"
+			}
+		],
+		"name": "raiseAction",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "gameId",
+				"type": "uint8"
+			}
+		],
+		"name": "River",
+		"outputs": [
+			{
+				"internalType": "uint8",
+				"name": "firstCard",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "secondCard",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "thirdCard",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "fourthCard",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "FifthCard",
+				"type": "uint8"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "gameId",
+				"type": "uint8"
+			}
+		],
+		"name": "showdown",
+		"outputs": [
+			{
+				"internalType": "uint8[][]",
+				"name": "",
+				"type": "uint8[][]"
+			},
+			{
+				"internalType": "uint8[]",
+				"name": "",
+				"type": "uint8[]"
+			},
+			{
+				"internalType": "uint8[]",
+				"name": "",
+				"type": "uint8[]"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "gameId",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint24",
+				"name": "seed",
+				"type": "uint24"
+			}
+		],
+		"name": "startGame",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "gameId",
+				"type": "uint8"
+			}
+		],
+		"name": "turn",
+		"outputs": [
+			{
+				"internalType": "uint8",
+				"name": "firstCard",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "secondCard",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "thirdCard",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "fourthCard",
+				"type": "uint8"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint24",
+				"name": "_commission",
+				"type": "uint24"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "gameId",
+				"type": "uint8"
+			}
+		],
+		"name": "getCardsDetail",
+		"outputs": [
+			{
+				"internalType": "uint8[][]",
+				"name": "",
+				"type": "uint8[][]"
+			},
+			{
+				"internalType": "uint8[]",
+				"name": "",
+				"type": "uint8[]"
+			},
+			{
+				"internalType": "uint8",
+				"name": "deckLength",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint40[]",
+				"name": "",
+				"type": "uint40[]"
+			},
+			{
+				"internalType": "uint8[]",
+				"name": "",
+				"type": "uint8[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "gameId",
+				"type": "uint8"
+			}
+		],
+		"name": "getGameBasicDetails",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "oowner",
+				"type": "address"
+			},
+			{
+				"internalType": "uint24",
+				"name": "blindAmount",
+				"type": "uint24"
+			},
+			{
+				"internalType": "uint24",
+				"name": "pot",
+				"type": "uint24"
+			},
+			{
+				"internalType": "enum PokerChain.GameStatus",
+				"name": "status",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8[]",
+				"name": "",
+				"type": "uint8[]"
+			},
+			{
+				"internalType": "uint8",
+				"name": "verifiedPlayerCount",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8[]",
+				"name": "",
+				"type": "uint8[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "gameId",
+				"type": "uint8"
+			}
+		],
+		"name": "getIsValidAction",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "validState",
+				"type": "bool"
+			},
+			{
+				"internalType": "bool",
+				"name": "validAction",
+				"type": "bool"
+			},
+			{
+				"internalType": "bool",
+				"name": "validPlayer",
+				"type": "bool"
+			},
+			{
+				"internalType": "bool",
+				"name": "validActivePlayer",
+				"type": "bool"
+			},
+			{
+				"internalType": "bool",
+				"name": "validTakeTurn",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "gameId",
+				"type": "uint8"
+			}
+		],
+		"name": "getMyBalance",
+		"outputs": [
+			{
+				"internalType": "uint24",
+				"name": "",
+				"type": "uint24"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "gameId",
+				"type": "uint8"
+			}
+		],
+		"name": "getMyHand",
+		"outputs": [
+			{
+				"internalType": "uint8",
+				"name": "firstCard",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "secondCard",
+				"type": "uint8"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getNumGames",
+		"outputs": [
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "gameId",
+				"type": "uint8"
+			}
+		],
+		"name": "getPlayers",
+		"outputs": [
+			{
+				"internalType": "address[]",
+				"name": "",
+				"type": "address[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "gameId",
+				"type": "uint8"
+			}
+		],
+		"name": "getRoundDetails",
+		"outputs": [
+			{
+				"internalType": "uint24[]",
+				"name": "",
+				"type": "uint24[]"
+			},
+			{
+				"internalType": "enum PokerChain.PlayerAction[]",
+				"name": "",
+				"type": "uint8[]"
+			},
+			{
+				"internalType": "uint24",
+				"name": "blindAmount",
+				"type": "uint24"
+			},
+			{
+				"internalType": "uint24",
+				"name": "pot",
+				"type": "uint24"
+			},
+			{
+				"internalType": "uint24",
+				"name": "currentBet",
+				"type": "uint24"
+			},
+			{
+				"internalType": "uint8",
+				"name": "currentPlayerIndex",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8[]",
+				"name": "",
+				"type": "uint8[]"
+			},
+			{
+				"internalType": "uint8[]",
+				"name": "",
+				"type": "uint8[]"
+			},
+			{
+				"internalType": "uint8[]",
+				"name": "",
+				"type": "uint8[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]

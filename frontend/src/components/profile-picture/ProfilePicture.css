@@ -1,0 +1,13 @@
+img.picture {
+    max-height: 200px;
+    width: 200px;
+    /* object-fit: cover; */
+}
+
+
+.account-address {
+    font-size: 1rem;
+    color: #FFFFFF;
+    font-weight: bold;
+    margin: 10px;
+}
