@@ -1,4 +1,4 @@
-# PokerChain Contract Documentation
+# Chainbluff Contract Documentation
 
 ## main-v2.sol
 
